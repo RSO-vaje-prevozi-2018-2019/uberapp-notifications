@@ -3,6 +3,9 @@ package si.fri.rso.samples.customers.services.beans;
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Metered;
+import org.eclipse.microprofile.metrics.annotation.Metric;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import si.fri.rso.samples.customers.models.dtos.Order;
 import si.fri.rso.samples.customers.models.entities.Customer;
@@ -77,6 +80,7 @@ public class NotificationsBean {
         return notification;
     }
 
+    @Metered(name="count_created_notifications")
     public Notification createNotification(Notification notification) {
 
         try {
