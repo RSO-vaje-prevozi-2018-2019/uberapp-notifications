@@ -1,6 +1,7 @@
 package si.fri.rso.samples.customers.api.v1.resources;
 
 
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import com.kumuluz.ee.logs.cdi.Log;
 import org.eclipse.microprofile.metrics.Timer;
 import org.eclipse.microprofile.metrics.annotation.Counted;
@@ -21,6 +22,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 @Path("/notifications")
@@ -33,6 +35,10 @@ public class NotificationResource {
 
     @Context
     protected UriInfo uriInfo;
+
+    @Inject
+    @DiscoverService(value = "uberapp-rides")
+    private Optional<String> basePathRides;
 
     @GET
     @Metered(name="count_get_all_notifications")
