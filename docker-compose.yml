@@ -9,9 +9,9 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: customer
   rso-customers:
-    image: glumac/uberapp:0.1
+    image: glumac/uberapp-notifications:0.1
     ports:
-      - 8080:8080
+      - 8083:8083
     environment:
       KUMULUZEE_DATASOURCES0_CONNECTIONURL: jdbc:postgresql://postgres:5432/customer
       KUMULUZEE_CONFIG_ETCD_HOSTS: http://etcd:2379
