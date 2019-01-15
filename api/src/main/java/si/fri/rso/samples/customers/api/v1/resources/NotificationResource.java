@@ -119,9 +119,10 @@ public class NotificationResource {
 
 
     @POST
-    @Path("/create")
+    @Path("create")
     @Metered(name="count_post_create_notification")
     public Response createNotification (Notification notification){
+        System.out.println(notification.getNotificationtext());
         try {
             if (notification == null) {
                 return Response.status(Response.Status.GONE).build();
