@@ -1,7 +1,11 @@
-# RSO: Customers microservice
+# RSO: Notification microservice
 
-## Prerequisites
+## Service for creating and showing notifications.
 
-```bash
-docker run -d --name pg-customers -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=customer -p 5432:5432 postgres:10.5
-```
+GET serverurl/v1/notifications/ --> get all notifications
+
+GET serverurl/v1/notifications/Unread --> get all unread notifications
+
+GET serverurl/v1/notifications/_notificationid_ --> reads the unread notification with _notificationid_
+
+POST serverurl/v1/notifications/create
